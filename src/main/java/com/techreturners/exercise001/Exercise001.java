@@ -10,7 +10,7 @@ public class Exercise001 {
 	 * This method used to capitalise the first character of word
 	 * 
 	 * @param word
-	 * @return
+	 * @return word
 	 */
 	public String capitalizeWord(String word) {
 		// To check given string is null or empty
@@ -25,7 +25,7 @@ public class Exercise001 {
 	 * 
 	 * @param firstName
 	 * @param lastName
-	 * @return
+	 * @return string (initials of firstName.lastName)
 	 */
 	public String generateInitials(String firstName, String lastName) {
 		StringBuilder initials = new StringBuilder();
@@ -46,10 +46,12 @@ public class Exercise001 {
 	 * 
 	 * @param originalPrice
 	 * @param vatRate
-	 * @return
+	 * @return Total price
 	 */
 	public double addVat(double originalPrice, double vatRate) {
+		// calculating vat price and adding the vat price to original price
 		double totalValue = ((vatRate / 100) * originalPrice) + originalPrice;
+		// Formating the decimal value to 2 digits
 		double finalValue = Math.round(totalValue * 100.0) / 100.0;
 		return finalValue;
 	}
@@ -58,7 +60,7 @@ public class Exercise001 {
 	 * This method used to return the reverse of given sentence
 	 * 
 	 * @param sentence
-	 * @return
+	 * @return string of reverse sentence
 	 */
 	public String reverse(String sentence) {
 		// check the sentence is null or empty if yes return it.
@@ -73,13 +75,14 @@ public class Exercise001 {
 	 * This method return the count of "Linux" users in the given list of users
 	 * 
 	 * @param users
-	 * @return
+	 * @return total count of linux users
 	 */
 	public int countLinuxUsers(List<User> users) {
 		// check users list is null or empty
 		if (users == null || users.isEmpty()) {
 			return 0;
 		}
+		//Get linux user list size
 		int linuxUser = users.stream().filter(user -> user.getType().equalsIgnoreCase("Linux"))
 				.collect(Collectors.toList()).size();
 		return linuxUser;
