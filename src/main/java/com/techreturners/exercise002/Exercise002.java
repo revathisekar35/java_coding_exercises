@@ -8,8 +8,8 @@ public class Exercise002 {
 	 * @return boolean
 	 */
 	public boolean isFromManchester(Person person) {
-		if (person != null && person.getCity().equalsIgnoreCase("Manchester")) {
-			return true;
+		if (person != null && person.getCity() != null) {
+			return person.getCity().equalsIgnoreCase("Manchester");
 		}
 		return false;
 	}
@@ -22,8 +22,8 @@ public class Exercise002 {
 	 * @return boolean
 	 */
 	public boolean canWatchFilm(Person person, int ageLimit) {
-		if (person != null && person.getAge() == 18) {
-			return true;
+		if (person != null) {
+			return person.getAge() >= 18;
 		}
 		return false;
 	}

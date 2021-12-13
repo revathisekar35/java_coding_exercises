@@ -18,7 +18,7 @@ public class Exercise004 {
 	/**
 	 * Adding gig seconds to localDatetime
 	 * 
-	 * @return
+	 * @return LocalDateTime
 	 */
 	public LocalDateTime getDateTime() {
 		return localDatetime.plusSeconds(GIGA_SECONDS);

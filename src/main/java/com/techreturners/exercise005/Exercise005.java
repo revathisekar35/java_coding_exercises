@@ -13,16 +13,12 @@ public class Exercise005 {
 	public boolean isPangram(String input) {
 		if (input != null) {
 			input = input.toUpperCase();
-
-			char[] arr = input.toCharArray();
+			char[] inputCharacterArr = input.toCharArray();
 			// Used Hashset to avoid duplicates of character
-			HashSet<Character> set = new HashSet<>();
-
-			for (char ch : arr) {
-				if (Character.isLetter(ch))
-					set.add(ch);
-			}
-			return (set.size() == 26);
+			HashSet<Character> alphabet = new HashSet<>();
+			new String(inputCharacterArr).chars().filter(c -> Character.isLetter(c))
+					.forEach(c -> alphabet.add((char) c));
+			return (alphabet.size() == 26);
 		} else
 			return false;
 	}

@@ -71,8 +71,16 @@ public class Exercise003Test {
     }
     
     @Test
-    public void checkGetIceCreamCodeNullString() {
+    public void checkGetIceCreamCodeWithNullString() {
         String iceCreamFlavour = null;
+        int expected = -1;
+
+        assertEquals(expected, ex003.getIceCreamCode(iceCreamFlavour));
+    }
+    
+    @Test
+    public void checkGetIceCreamCodeWithEmptyString() {
+        String iceCreamFlavour = "";
         int expected = -1;
 
         assertEquals(expected, ex003.getIceCreamCode(iceCreamFlavour));
