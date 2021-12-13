@@ -1,7 +1,6 @@
 package com.techreturners.exercise005;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -21,52 +20,64 @@ public class Exercise005Test {
         assertFalse(ex005.isPangram(""));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkPerfectLowerCaseSentenceIsAPangram() {
         assertTrue(ex005.isPangram("abcdefghijklmnopqrstuvwxyz"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkPerfectUpperCaseSentenceIsAPangram() {
         assertTrue(ex005.isPangram("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithLowerCaseIsAPangram() {
         assertTrue(ex005.isPangram("the quick brown fox jumps over the lazy dog"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithMixedUpperAndLowerCaseIsAPangram() {
         assertTrue(ex005.isPangram("The Five boXing wiZards Jump QuicklY"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithMissingLetterXIsNotAPangram() {
         assertFalse(ex005.isPangram("the quick brown fo jumps over the lazy dog"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithMissingLetterHIsNotAPangram() {
         assertFalse(ex005.isPangram("five boxing wizards jump quickly at it"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithUnderscoresIsAPangram() {
         assertTrue(ex005.isPangram("the_quick_brown_fox_jumps_over_the_lazy_dog"));
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
     @Test
     public void checkSentenceWithNumbersIsAPangram() {
         assertTrue(ex005.isPangram("the 1 quick brown fox jumps over the 2 lazy dogs"));
+    }
+    
+    @Test
+    public void checkSentenceWithOnlyNumber() {
+        assertFalse(ex005.isPangram("123456987011121314516171819"));
+    }
+    
+    @Test
+    public void checkNullString() {
+        assertFalse(ex005.isPangram(null));
+    }
+    
+    @Test
+    public void checkSentenceWithSpecialCharcter() {
+    	assertTrue(ex005.isPangram("abcdefghijklmn,!#@%$OPQRSTUVWXYZ"));
+    }
+    
+    @Test
+    public void checkSentenceWithOnlySpecialCharcter() {
+    	assertFalse(ex005.isPangram("!@#$%&*()"));
     }
 
 }
