@@ -11,11 +11,14 @@ public class Exercise001 {
 	 * @return word
 	 */
 	public String capitalizeWord(String word) {
-		// To check given string is null or empty
-		if (word == null || word.isEmpty()) {
-			return word;
+		StringBuilder capitalizedWord = new StringBuilder();
+		try {
+			capitalizedWord.append(word.substring(0, 1).toUpperCase() + word.substring(1));
+		} catch (NullPointerException ne) {
+			System.out.println("word is null in capitalizeWord method " + ne.getMessage());
+			ne.printStackTrace();
 		}
-		return word.substring(0, 1).toUpperCase() + word.substring(1);
+		return capitalizedWord.toString();
 	}
 
 	/**
@@ -27,15 +30,13 @@ public class Exercise001 {
 	 */
 	public String generateInitials(String firstName, String lastName) {
 		StringBuilder initials = new StringBuilder();
-		if (firstName != null && !firstName.isEmpty()) {
+		try {
 			initials.append(firstName.substring(0, 1));
-
-		}
-		if (lastName != null && !lastName.isEmpty()) {
 			initials.append("." + lastName.substring(0, 1));
-
+		} catch (NullPointerException ne) {
+			System.out.println("firstName or lastName is null in generateInitials method" + ne.getMessage());
+			ne.getStackTrace();
 		}
-
 		return initials.toString();
 	}
 
@@ -50,8 +51,7 @@ public class Exercise001 {
 		// calculating vat price and adding the vat price to original price
 		double totalValue = ((vatRate / 100) * originalPrice) + originalPrice;
 		// Formating the decimal value to 2 digits
-		double finalValue = Math.round(totalValue * 100.0) / 100.0;
-		return finalValue;
+		return Math.round(totalValue * 100.0) / 100.0;
 	}
 
 	/**
@@ -61,11 +61,8 @@ public class Exercise001 {
 	 * @return string of reverse sentence
 	 */
 	public String reverse(String sentence) {
-		// check the sentence is null or empty if yes return it.
-		if (sentence == null || sentence.isEmpty()) {
-			return sentence;
-		}
-		StringBuilder reverseString = new StringBuilder(sentence);
+		StringBuilder reverseString = new StringBuilder();
+		reverseString.append(sentence);
 		return reverseString.reverse().toString();
 	}
 
@@ -76,13 +73,15 @@ public class Exercise001 {
 	 * @return total count of linux users
 	 */
 	public int countLinuxUsers(List<User> users) {
-		// check users list is null or empty
-		if (users == null || users.isEmpty()) {
-			return 0;
+		int linuxUser = 0;
+		try {
+			// Get linux user list size
+			linuxUser = users.stream().filter(user -> user.getType().equalsIgnoreCase("Linux"))
+					.collect(Collectors.toList()).size();
+		} catch (NullPointerException ne) {
+			System.out.println("users list is null in countLinuxUsers" + ne.getMessage());
+			ne.printStackTrace();
 		}
-		//Get linux user list size
-		int linuxUser = users.stream().filter(user -> user.getType().equalsIgnoreCase("Linux"))
-				.collect(Collectors.toList()).size();
 		return linuxUser;
 	}
 }

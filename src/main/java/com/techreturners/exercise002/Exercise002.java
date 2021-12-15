@@ -8,8 +8,13 @@ public class Exercise002 {
 	 * @return boolean
 	 */
 	public boolean isFromManchester(Person person) {
-		if (person != null && person.getCity() != null) {
-			return person.getCity().equalsIgnoreCase("Manchester");
+		try {
+			if (person != null) {
+				return person.getCity().equalsIgnoreCase("Manchester");
+			}
+		} catch (NullPointerException ne) {
+			System.out.println("person is null in isFromManchester method" + ne.getMessage());
+			ne.printStackTrace();
 		}
 		return false;
 	}
@@ -22,10 +27,13 @@ public class Exercise002 {
 	 * @return boolean
 	 */
 	public boolean canWatchFilm(Person person, int ageLimit) {
-		if (person != null) {
-			return person.getAge() >= 18;
+		try {
+			if (person != null)
+				return person.getAge() >= 18;
+		} catch (NullPointerException ne) {
+			System.out.println("person is null in canWatchFilm " + ne.getMessage());
+			ne.printStackTrace();
 		}
 		return false;
 	}
-
 }

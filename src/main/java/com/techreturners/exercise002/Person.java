@@ -1,20 +1,22 @@
 package com.techreturners.exercise002;
+
 /**
  * This class maintains the person details
+ * 
  * @author revathi
  *
  */
 public class Person {
 	private String firstName;
-	private String lsatName;
+	private String lastName;
 	private String city;
 	private int age;
 
 	public Person(String firstName, String lastName, String city, int age) {
 		this.firstName = firstName;
-		this.lsatName = lastName;
+		this.lastName = lastName;
 		this.city = city;
-		this.age =age;
+		this.age = age;
 	}
 
 	public String getFirstName() {
@@ -22,7 +24,7 @@ public class Person {
 	}
 
 	public String getLsatName() {
-		return lsatName;
+		return lastName;
 	}
 
 	public String getCity() {

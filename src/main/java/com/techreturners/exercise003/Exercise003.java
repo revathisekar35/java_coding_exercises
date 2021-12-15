@@ -28,7 +28,6 @@ enum IcecreamFlavours {
 	public Integer getValue() {
 		return value;
 	}
-
 }
 
 public class Exercise003 {
@@ -65,5 +64,4 @@ public class Exercise003 {
 		}
 		return iceCreamFlavourList;
 	}
-
 }
