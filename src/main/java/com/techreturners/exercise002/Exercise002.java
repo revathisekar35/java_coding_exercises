@@ -9,9 +9,7 @@ public class Exercise002 {
 	 */
 	public boolean isFromManchester(Person person) {
 		try {
-			if (person != null) {
-				return person.getCity().equalsIgnoreCase("Manchester");
-			}
+			return person.getCity().equalsIgnoreCase("Manchester");
 		} catch (NullPointerException ne) {
 			System.out.println("person is null in isFromManchester method" + ne.getMessage());
 			ne.printStackTrace();
@@ -28,8 +26,7 @@ public class Exercise002 {
 	 */
 	public boolean canWatchFilm(Person person, int ageLimit) {
 		try {
-			if (person != null)
-				return person.getAge() >= 18;
+			return person.getAge() >= 18;
 		} catch (NullPointerException ne) {
 			System.out.println("person is null in canWatchFilm " + ne.getMessage());
 			ne.printStackTrace();

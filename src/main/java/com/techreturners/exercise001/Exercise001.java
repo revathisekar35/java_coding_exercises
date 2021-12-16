@@ -62,8 +62,7 @@ public class Exercise001 {
 	 */
 	public String reverse(String sentence) {
 		StringBuilder reverseString = new StringBuilder();
-		reverseString.append(sentence);
-		return reverseString.reverse().toString();
+		return reverseString.append(sentence).reverse().toString();
 	}
 
 	/**
@@ -73,15 +72,14 @@ public class Exercise001 {
 	 * @return total count of linux users
 	 */
 	public int countLinuxUsers(List<User> users) {
-		int linuxUser = 0;
 		try {
 			// Get linux user list size
-			linuxUser = users.stream().filter(user -> user.getType().equalsIgnoreCase("Linux"))
-					.collect(Collectors.toList()).size();
+			return users.stream().filter(user -> user.getType().equalsIgnoreCase("Linux")).collect(Collectors.toList())
+					.size();
 		} catch (NullPointerException ne) {
 			System.out.println("users list is null in countLinuxUsers" + ne.getMessage());
 			ne.printStackTrace();
 		}
-		return linuxUser;
+		return 0;
 	}
 }
